@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import Header from './component/Header';
+import Main from './component/Main';
+import Sec1 from './component/Sec1';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} /> {/* 메인 페이지 */}
+          <Route path="/Sec1" element={<Sec1 />} /> {/* Sec1 페이지 */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
